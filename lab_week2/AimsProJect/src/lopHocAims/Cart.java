@@ -18,6 +18,15 @@ public class Cart {
 		else System.out.print("MAX");
 	}
 	
+	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
+		for(int i = 0; i<dvdList.length; i++) this.addDigitalVideoDisc(dvdList[i]);
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
+		this.addDigitalVideoDisc(dvd1);
+		this.addDigitalVideoDisc(dvd2);
+	}
+	
 	public boolean removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		int check = 0;
 		for(int i =0;i<this.qtyOrdered;i++) {
@@ -41,4 +50,25 @@ public class Cart {
 		}
 		return answer;
 	}
+	
+	public void displayDisc() {
+		System.out.println("***********************CART***********************");
+		for(int i = 0;i < qtyOrdered; i ++) {
+			System.out.println(itemsOrdered[i].toString());
+		}
+		System.out.println("***************************************************");
+	}
+	
+	public boolean searchDisc(int id) {
+		for(int i = 0;i<itemsOrdered.length;i++) {
+			if(itemsOrdered[i].getId() == id) {
+				System.out.println("Result: ");
+				System.out.println(itemsOrdered[i].toString());
+				return true;
+			}
+		}
+		System.out.println("Id not exist");
+		return false;
+	}
+	
 }
